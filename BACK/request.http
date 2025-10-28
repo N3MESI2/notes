@@ -1,0 +1,27 @@
+GET http://localhost:3001/api/notas
+
+
+###  Obtener Nota por ID
+GET http://localhost:3001/api/notas/1234
+
+
+###  Crear Nota
+POST http://localhost:3001/api/notas
+Content-Type: application/json
+
+{
+    "title": "Nueva nota",
+    "description": "Descripcion de la nueva nota"
+}
+
+###  Eliminar Nota
+DELETE http://localhost:3001/api/notas/1010
+
+###  Editar Nota
+PUT http://localhost:3001/api/notas/1010
+Content-Type: application/json
+
+{
+    "title": "Nota editada",
+    "description": "Descripcion de la nota editada"
+}
