@@ -8,7 +8,7 @@ export const connectDB = async () => {
         console.log('MONGODatabase connected successfully')
         
     } catch (error) {
-        console.error('Database connection error:', error)
+        console.error('Error de conexion en la dataBase:', error)
         process.exit(1);
         }
 }
