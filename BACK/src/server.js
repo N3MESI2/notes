@@ -19,6 +19,7 @@ connectDB()
   console.log(process.env.PORT);
   app.listen(PORT, () => {
     console.log(`Servidor levantado en el puerto http://localhost:${PORT}`);
+
   });
 })
 

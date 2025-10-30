@@ -22,6 +22,6 @@ PUT http://localhost:3001/api/notas/1010
 Content-Type: application/json
 
 {
-    "title": "Trolosis",
+    "title": "Nota editada",
     "description": "Descripcion de la nota editada"
 }

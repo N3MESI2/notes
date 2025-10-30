@@ -11,4 +11,4 @@ export const connectDB = async () => {
         console.error('Error de conexion en la dataBase:', error)
         process.exit(1);
         }
-}
+} 
