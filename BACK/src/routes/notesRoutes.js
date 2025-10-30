@@ -17,11 +17,15 @@ router.get("/:id", (req, res) => {
 // Crear una nueva nota
 router.post("/", async (req, res) => {
     try {
-       const { title, content } = req.body
+       const { title, description } = req.body
        const note = new Note({ title, description})
-
+       
        const savedNote = await note.save()
- 
+
+       if (savedNote) {
+            res.status(201).json({ message: "Nota creada correctamente", note: savedNote})
+       }
+
     } catch (error) {
       console.error("Error al crear una nueva nota:", error)
       res.status(500).json({ error: "Internal Server Error" })

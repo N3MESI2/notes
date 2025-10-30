@@ -4,7 +4,7 @@ export const connectDB = async () => {
     try {
         const dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
         
-    mongoose.connect(dbURI)    
+        mongoose.connect(dbURI)    
         console.log('MONGODatabase connected successfully')
         
     } catch (error) {

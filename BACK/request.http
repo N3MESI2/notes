@@ -6,12 +6,12 @@ GET http://localhost:3001/api/notas/1234
 
 
 ###  Crear Nota
-POST http://localhost:3001/api/notas
+POST http://localhost:3000/api/notas
 Content-Type: application/json
 
 {
-    "title": "Nueva nota",
-    "description": "Descripcion de la nueva nota"
+    "title": "Primer nota creada para mi DB",
+    "description": "Descripcion de la primer nota creada para mi d"
 }
 
 ###  Eliminar Nota
