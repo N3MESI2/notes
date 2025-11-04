@@ -1,8 +1,8 @@
-GET http://localhost:3001/api/notas
+GET http://localhost:3000/api/notas
 
 
 ###  Obtener Nota por ID
-GET http://localhost:3001/api/notas/1234
+GET http://localhost:3000/api/notas/1234
 
 
 ###  Crear Nota
@@ -11,14 +11,14 @@ Content-Type: application/json
 
 {
     "title": "Primer nota creada para mi DB",
-    "description": "Descripcion de la primer nota creada para mi d"
+    "description": "Descripcion de la primer nota creada para mi DB"
 }
 
 ###  Eliminar Nota
-DELETE http://localhost:3001/api/notas/1010
+DELETE http://localhost:3000/api/notas/1010
 
 ###  Editar Nota
-PUT http://localhost:3001/api/notas/1010
+PUT http://localhost:3000/api/notas/1010
 Content-Type: application/json
 
 {

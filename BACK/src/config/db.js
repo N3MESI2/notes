@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
     try {
-        const dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
+        const dbURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mydatabase';
         
-        mongoose.connect(dbURI)    
+        await mongoose.connect(dbURI)    
         console.log('MONGODatabase connected successfully')
         
     } catch (error) {
