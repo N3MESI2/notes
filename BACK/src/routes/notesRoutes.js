@@ -3,15 +3,33 @@ import Note from "../models/notesModel.js";
 const router = express.Router();
 
 // Obtener todas las notas
-router.get("/",() => {
-  console.log("Enviando las notas");
+router.get("/",async (req, res) => {
+    try {
+
+      const notes = await Note.find()
+      res.status(200).json(notes)
+
+    } catch (error) {
+
+      console.error("Error al obtener las notas:", error)
+      res.status(500).json({ error: "Internal Server Error" })
+      
+    }
 })
 
 // Obtener una nota por id
-router.get("/:id", (req, res) => {
-  const id = req.params.id
-  console.log(id);
-  console.log("Enviando una nota por id");
+router.get("/:id", async (req, res) => {
+  try {
+    
+    const id = req.params.id
+    const note = await Note.findById(id)
+    if (!note) return res.status(404).json({ error: "Nota no encontrada" })
+    res.status(200).json(note)
+
+  } catch (error) {
+    console.error("Error al obtener la nota por id:", error)
+    res.status(500).json({ error: "Internal Server Error" })
+  }
 })
 
 // Crear una nueva nota
@@ -34,18 +52,36 @@ router.post("/", async (req, res) => {
 
 
 // Eliminar una nota por id 
-router.delete("/:id", (req, res) => {
-  const id = req.params.id
-  console.log("Eliminar una nota " + id);
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id
+    const deletedNote = await Note.findByIdAndDelete(id)
+    if (!deletedNote) return res.status(404).json({ error: "Nota no encontrada" })
+    res.status(200).json({ message: "Nota eliminada correctamente" })
+
+   
+  } catch (error) {
+    console.error("Error al eliminar la nota:", error)
+    res.status(500).json({ error: "Internal Server Error" })
+  }
+
 
 })
 
 // Editar una nota por id
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
+ try {
+  
   const id = req.params.id
-  const updatedData = req.body
-  console.log("Se edito la nota " + id);
-  console.log(updatedData);
+  const { title, description } = req.body
+  const updatedNote = await Note.findByIdAndUpdate(id, { title, description }, { new: true })
+  if (!updatedNote) return res.status(404).json({ error: "Nota no actualizada correctamente" })
+  res.status(200).json({ message: "Nota actualizada correctamente", note: updatedNote })
+
+ } catch (error) {
+       console.error("Error al actualizar la nota:", error)
+       res.status(500).json({ error: "Internal Server Error" })
+ }
 })
 
 

@@ -2,7 +2,9 @@ GET http://localhost:3000/api/notas
 
 
 ###  Obtener Nota por ID
-GET http://localhost:3000/api/notas/1234
+GET http://localhost:3000/api/notas/690d066d76a35bd60e185d4c
+
+
 
 
 ###  Crear Nota
@@ -10,18 +12,18 @@ POST http://localhost:3000/api/notas
 Content-Type: application/json
 
 {
-    "title": "Primer nota creada para mi DB",
+    "title": "Primer nota x creada para mi DB",
     "description": "Descripcion de la primer nota creada para mi DB"
 }
 
 ###  Eliminar Nota
-DELETE http://localhost:3000/api/notas/1010
+DELETE http://localhost:3000/api/notas/690d066d76a35bd60e185d4c
 
 ###  Editar Nota
-PUT http://localhost:3000/api/notas/1010
+PUT http://localhost:3000/api/notas/690def4bc4f4c5edfad868c3
 Content-Type: application/json
 
 {
-    "title": "Nota editada",
-    "description": "Descripcion de la nota editada"
+    "title": "Nota actualizada"
+    
 }
