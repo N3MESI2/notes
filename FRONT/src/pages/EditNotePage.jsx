@@ -1,7 +1,7 @@
 const EditNotePage = () => {
   return (
     <div>
-        <h1 className="text-orange-500 text-9xl">Edit NotePage</h1>
+        <h1 className="text-pink-500 text-9xl">Edit Note Page</h1>
     </div>
   )
 }
