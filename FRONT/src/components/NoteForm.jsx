@@ -1,12 +1,38 @@
-export const NoteForm = () => {
+import { set } from "date-fns";
+import { useState, useEffect } from "react";
+
+const NoteForm = ({ onSubmit, initialDate }) => {
+        const [note, setNotes] = useState(initialDate)
+
+
+        //necesitamos actualizar los cambios si los datos iniciales cambian
+
+  useEffect(() => {
+    setNotes[initialDate]
+  }, [initialDate])
+   
+
+  const handleChange = (e) => {
+    setNotes({
+      ...note,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onSubmit(note)
+  }
   return (
-  <form className="bg-base-300 rounded-lg max-w-4xl mx-auto p-10">
+  <form onSubmit={handleSubmit} className="bg-base-300 rounded-lg max-w-4xl mx-auto p-10">
     <input 
       className="block w-full mb-8 input lg:input-lg focus:ring-0 focus:outline-amber-600 border-0"
       placeholder="Titulo" 
       type="text" 
       id="title" 
       name="title" 
+      value={note.title}
+      onChange={handleChange}
       required
     />
     <textarea 
@@ -14,9 +40,12 @@ export const NoteForm = () => {
       name="description" 
       id="description" 
       placeholder="Descripcion de la tarea" 
+      value={note.description}
+      onChange={handleChange}
       required>
 
     </textarea>
+    <button className="text-amber-300 btn btn-soft btn-primary">Guardar</button>
   </form>
     
   )

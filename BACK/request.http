@@ -1,29 +1,40 @@
-GET http://localhost:3000/api/notas
+GET http://localhost:3000/api/notes
 
 
 ###  Obtener Nota por ID
-GET http://localhost:3000/api/notas/690d066d76a35bd60e185d4c
+GET http://localhost:3000/api/notes/690d066d76a35bd60e185d4c
 
 
 
 
 ###  Crear Nota
-POST http://localhost:3000/api/notas
+POST http://localhost:3000/api/notes
 Content-Type: application/json
 
 {
-    "title": "Primer nota x creada para mi DB",
-    "description": "Descripcion de la primer nota creada para mi DB"
+    "title": "Nota creada desde el backend",
+    "description": "Descripcion de la nota creada desde el backend"
 }
 
 ###  Eliminar Nota
-DELETE http://localhost:3000/api/notas/690d066d76a35bd60e185d4c
+DELETE http://localhost:3000/api/notes/690d066d76a35bd60e185d4c
 
 ###  Editar Nota
-PUT http://localhost:3000/api/notas/690def4bc4f4c5edfad868c3
+PUT http://localhost:3000/api/notes/690def4bc4f4c5edfad868c3
 Content-Type: application/json
 
 {
     "title": "Nota actualizada"
     
+}
+
+
+### 
+
+POST https://notes-acbs.onrender.com/api/notas
+Content-Type: application/json
+
+{
+    "title": "Nota creada hacia el backend deployed",
+    "description": "Descripcion de la nota creada hacia el backend deployed"
 }
