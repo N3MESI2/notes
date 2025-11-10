@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://benevolent-pithivier-9eff21.netlify.app/"]
+  origin: ["http://localhost:5173", "https://benevolent-pithivier-9eff21.netlify.app"]
 }))
 
 app.use(express.json())
