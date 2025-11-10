@@ -1,22 +1,21 @@
-import { th } from "date-fns/locale";
-import NoteForm from "../components/NoteForm.jsx"
-import axios from "axios"
-import { toast } from "react-toastify"
+import NoteForm from "../components/NoteForm";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-
 const CreateNotePage = () => {
+  const navigate = useNavigate();
+
   const handleCreate = async (note) => {
-    const navigate = useNavigate();
     try {
       await axios
         .post(`${import.meta.env.VITE_API_URL}/api/notes`, note)
         .then((res) => {
           if (res.status !== 201) {
-            throw new Error("Error creando una nota");
+            throw new Error("Error al crear una nota");
           }
 
-          toast.success("Nota creada con exito", {
+          toast.success("¡Nota creada con éxito", {
             position: "bottom-center",
             autoClose: 3000,
             theme: "colored",
@@ -27,14 +26,12 @@ const CreateNotePage = () => {
       console.error(error);
     }
   };
-
   return (
     <div>
       <NoteForm
         onSubmit={handleCreate}
-        initialDate={{ title: "", description: "" }}
+        initialData={{ title: "", content: "" }}
       />
-
     </div>
   );
 };
