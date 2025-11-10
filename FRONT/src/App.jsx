@@ -5,17 +5,19 @@ import EditNotePage from "./pages/EditNotePage";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Homepage></Homepage>}></Route>
-      <Route
-        path="/createNote"
-        element={<CreateNotePage></CreateNotePage>}
-      ></Route>
-      <Route
-        path="/editNote/:id"
-        element={<EditNotePage></EditNotePage>}
-      ></Route>
-    </Routes>
+    <div className="w-full max-w-[1200px] mx-auto px-3.5">
+      <Routes>
+        <Route path="/" element={<Homepage></Homepage>}></Route>
+        <Route
+          path="/createNote"
+          element={<CreateNotePage></CreateNotePage>}
+        ></Route>
+        <Route
+          path="/editNote/:id"
+          element={<EditNotePage></EditNotePage>}
+        ></Route>
+      </Routes>
+    </div>
   );
 }
 
