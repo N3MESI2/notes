@@ -1,7 +1,7 @@
 import { SquarePen, Trash } from "lucide-react";
 
 // id
-const CardNote = ({ title, description, date, onEdit, onDelete }) => {
+const CardNote = ({ title, description, date, onEdit, onDelete, id }) => {
   return (
     <div className="card bg-base-300 w-full">
       <div className="card-body">
