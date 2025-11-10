@@ -1,13 +1,13 @@
 import { th } from "date-fns/locale";
-import NoteForm from "../components/NoteForm"
+import NoteForm from "../components/NoteForm.jsx"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { useNavigate } from "react-router-dom"
+import { 
 
+ } from "react-router-dom";
 
 
 const CreateNotePage = () => {
-  const navigate = useNavigate()
   const handleCreate = async (note) => {
     try {
       await axios
@@ -22,7 +22,6 @@ const CreateNotePage = () => {
             autoClose: 3000,
             theme: "colored",
           });
-          navigate("/");
         });
     } catch (error) {
       console.error(error);
