@@ -25,6 +25,25 @@ const Homepage = () => {
     fetchData() 
   }, [])
 
+  const handleEdit = (id) => {
+    // de momento, solo log:
+      console.log("Editar nota", id);
+
+    // si tenés ruta de edición:
+    // navigate(`/edit/${id}`);
+  };
+
+  // 👇 handler para eliminar
+    const handleDelete = async (id) => {
+      try {
+        await axios.delete(`${apiURL}/api/notes/${id}`);
+      // actualizamos el estado quitando la nota eliminada
+        setNotes((prev) => prev.filter((note) => note._id !== id));
+    } catch (error) {
+      console.error("Error eliminando nota", error);
+    }
+  };
+
   if(loading) return <span>Cargando...</span>
 
 
@@ -38,6 +57,8 @@ const Homepage = () => {
         description={note.description}
         id={note._id}
         date={formatData(note.createdAt)}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
         />
       ))}
     </div>
