@@ -45,7 +45,7 @@ const EditNotePage = () => {
   return (
     <div>
       <h1 className="text-5xl font-bold text-center mb-8">Editar Nota</h1>
-      <NoteForm initialDate={initialData} onSubmit={handleUpdate} />
+      <NoteForm initialData={initialData} onSubmit={handleUpdate} />
     </div>
   );
 };

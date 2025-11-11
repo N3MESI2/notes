@@ -9,13 +9,13 @@ const CreateNotePage = () => {
   const handleCreate = async (note) => {
     try {
       await axios
-        .post(`${import.meta.env.VITE_API_URL}/api/notas`, note)
+        .post(`${import.meta.env.VITE_API_URL}/api/notes`, note)
         .then((res) => {
           if (res.status !== 201) {
             throw new Error("Error al crear una nota");
           }
 
-          toast.success("¡Nota creada con éxito", {
+          toast.success("¡Nota creada con éxito!", {
             position: "bottom-center",
             autoClose: 3000,
             theme: "colored",

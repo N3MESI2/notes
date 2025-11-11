@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 
-const NoteForm = ({ onSubmit, initialDate = { title: "", description: "" } }) => {
-  const [note, setNotes] = useState(initialDate);
+const EMPTY_NOTE = { title: "", description: "" };
 
-  // 🔒 protección: si initialDate cambia o llega undefined, actualizamos con valores vacíos
+const NoteForm = ({ onSubmit, initialDate }) => {
+  const [note, setNotes] = useState(initialDate || EMPTY_NOTE);
+
   useEffect(() => {
-    setNotes(initialDate || { title: "", description: "" });
+    setNotes(initialDate || EMPTY_NOTE);
   }, [initialDate]);
 
   const handleChange = (e) => {
-    setNotes({
-      ...note,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setNotes((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -31,7 +33,7 @@ const NoteForm = ({ onSubmit, initialDate = { title: "", description: "" } }) =>
         type="text"
         id="title"
         name="title"
-        value={note?.title ?? ""}
+        value={note.title}
         onChange={handleChange}
         required
       />
@@ -41,7 +43,7 @@ const NoteForm = ({ onSubmit, initialDate = { title: "", description: "" } }) =>
         name="description"
         id="description"
         placeholder="Descripción de la tarea"
-        value={note?.description ?? ""}
+        value={note.description}
         onChange={handleChange}
         required
       />
